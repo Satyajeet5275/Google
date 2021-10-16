@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- css file -->
+    <link rel="stylesheet" href="main.css">
+
+    <!-- material icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <title>Google Search</title>
+
+</head>
+
+<body>
+    <div class="app">
+        <div class="header">
+            <div class="logo">
+                <span style="font-size:30px; color:rgb(66, 136, 244); margin:0; ">G</span>
+                <span style="font-size:30px; color:rgb(234, 67, 53); margin:0px;">o</span>
+                <span style="font-size:30px; color:rgb(251, 188, 5);margin:0px;">o</span>
+                <span style="font-size:30px; color:rgb(66, 136, 244) ; margin:0px;">g</span>
+                <span style="font-size:30px; color:rgb(52, 168,83); margin:0px;">l</span>
+                <span style="font-size:30px; color:rgb(234, 67, 53); margin:0px;">e</span>
+            </div>
+            <div class="search_bar">
+                <input id="s" type="text">
+                
+                <img src="https://cdn1.iconfinder.com/data/icons/google-s-logo/150/Google_Icons-25-512.png" style="width:30px;object-fit:contain;margin-left:5px;" alt="">
+                <i class="material-icons" style="color:rgb(66, 136, 244);margin-left:8px;">search</i>
+            </div>
+            <div class="options">
+                    <i class="material-icons op">settings</i>
+                    <i class="material-icons op">apps</i>
+                    <i class="material-icons op">account_circle</i>
+            </div>
+        </div>
+        <div class="options_bar">
+
+        </div>
+        <div class="app_body" id="appb">
+            <!-- <div class="info_results">
+                 <span id="results">About 21,16,00,00,000 results (0.46 seconds)</span>
+            </div> -->
+          
+            
+        </div>
+    </div>
+    <!-- Script -->
+    <script>
+        var search=localStorage.getItem("name");
+        document.getElementById("s").value=search;
+        const API_KEY="AIzaSyBl4RJs3e710UCQXoRfea6Z7PyBRG2e7qk";
+        const CONTEXT_KEY="2f703de2a9b36fba8";
+          
+     fetch(`http://api.serpstack.com/search?access_key=7a11c3457ceba8a7e8da239b1eb7a6f3&query=${search}`)
+    .then((response) => response.json())
+    .then((results) =>  
+    {
+      var items1=results.organic_results;
+        console.log(items1);
+      var resultsHTML=""   
+      items1.forEach(element => {
+
+        resultsHTML+=`  <div class="result" >
+                <div class="link">
+                   <a href="${element.url}"  >${element.displayed_url}</a>
+                </div>
+                <div class="title">
+                    <a href="${element.url} >${element.title}</a>
+                </div>
+                <div class="ds">
+                    ${element.snippet}
+                </div>
+            </div>`
+      });
+        console.log(results.items);
+        document.getElementById("appb").innerHTML=resultsHTML;
+    })
+    // fetch(`https://www.googleapis.com/customsearch/v1?key=${API_KEY}&cx=${CONTEXT_KEY}&q=${search}`)
+    // .then((response) => response.json())
+    // .then((results) =>  
+    // {
+    //   var items1=results.items;
+    //     console.log(items1);
+    //   var resultsHTML=""   
+    //   items1.forEach(element => {
+
+    //     resultsHTML+=`  <div class="result" >
+    //             <div class="link">
+    //                <a href="${element.link}" >${element.formattedUrl}</a>
+    //             </div>
+    //             <div class="title">
+    //                 <a href="${element.link}">${element.title}</a>
+    //             </div>
+    //             <div class="ds">
+    //                 ${element.snippet}
+    //             </div>
+    //         </div>`
+    //   });
+    //   console.log(results.items);
+    //     document.getElementById("appb").innerHTML=resultsHTML;
+    // })
+    </script>
+</body>
+<!-- https://www.googleapis.com/customsearch/v1?key=${API_KEY}&cx=${CONTEXT_KEY}&q=${search} -->
+</html>

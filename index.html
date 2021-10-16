@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- css file -->
+    <link rel="stylesheet" href="style.css">
+    <!-- meterial-icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <title>Google</title>
+    
+</head>
+<body>
+    <div class="main">
+        
+        <div class="top">
+
+        </div>
+        <div class="middle">
+            <div class="name">
+                <div class="logo">
+             
+                    <span style="font-size:90px; color:rgb(66, 136, 244); margin:0; ">G</span>
+                    <span style="font-size:90px; color:rgb(234, 67, 53); margin:0px;">o</span>
+                    <span style="font-size:90px; color:rgb(251, 188, 5);margin:0px;">o</span>
+                    <span style="font-size:90px; color:rgb(66, 136, 244) ; margin:0px;">g</span>
+                    <span style="font-size:90px; color:rgb(52, 168,83); margin:0px;">l</span>
+                    <span style="font-size:90px; color:rgb(234, 67, 53); margin:0;">e</span> 
+                
+                </div>
+               
+            </div>
+           
+            <div class="search_section">
+
+                <div class="search">
+                    <div class="icon">
+                        <i class="material-icons">search</i>
+                    </div>
+                   <div class="bar">
+                    <input type="text" id="si">
+                   </div>
+                    <div class="mico">
+                       <img src="https://cdn1.iconfinder.com/data/icons/google-s-logo/150/Google_Icons-25-512.png" style="width:30px;object-fit:contain;" alt="">
+                    </div>
+                </div>
+                <div class="btn">
+                    <button class="btns" id="sb" onclick="searching()">Google Search</button>
+                    <button class="btns">I'm Feeling Lucky</button>
+                </div>
+                <div class="text">
+                    <span class="t1">Google offered in:<span><span class="t2"> हिन्दी  বাংলা  తెలుగు  मराठी  தமிழ்  ગુજરાતી  ಕನ್ನಡ  മലയാളം  ਪੰਜਾਬੀ</span>
+                </div>
+            </div>
+        </div>
+        <script>
+            document.getElementById("si").addEventListener("keyup",function(event) 
+            {
+              if (event.keyCode === 13) 
+              {
+               event.preventDefault();
+               document.getElementById("sb").click();
+               
+              }
+            });
+            function searching()
+            {
+                location.href=('main.html');
+                var search=document.getElementById("si").value
+               console.log(search)
+                localStorage.setItem("name",search)
+            }
+            
+                
+                </script>
+        <div class="bottom">
+                <div class="footer_top">
+                        <span>India</span>
+                </div>
+                <div class="footer_bottom">
+                    <center>
+                    <span>
+                        About
+                    </span>
+                    <span>
+                        Advertising
+                    </span>
+                    <span>
+                        Buisness
+                    </span>
+                    <span>
+                        How Search works
+                    </span>
+                    <span>
+                       Privacy
+                    </span>
+                    <span>
+                        Terms
+                     </span>
+                     <span>
+                        Settings
+                     </span>
+                </div>
+            </center>
+        </div>
+    </div>
+</body>
+</html>
