@@ -41,16 +41,12 @@
 
         </div>
         <div class="app_body" id="appb">
-            <!-- <div class="info_results">
-                 <span id="results">About 21,16,00,00,000 results (0.46 seconds)</span>
-            </div> -->
-          
             
         </div>
     </div>
     <!-- Script -->
     <script>
-        var search=localStorage.getItem("name");
+        var search=localStorage.getItem("name");    
         document.getElementById("s").value=search;
         const API_KEY="AIzaSyBl4RJs3e710UCQXoRfea6Z7PyBRG2e7qk";
         const CONTEXT_KEY="2f703de2a9b36fba8";
@@ -62,6 +58,7 @@
       var items1=results.organic_results;
         console.log(items1);
       var resultsHTML=""   
+      //Data Rendering multiple time
       items1.forEach(element => {
 
         resultsHTML+=`  <div class="result" >
@@ -79,31 +76,7 @@
         console.log(results.items);
         document.getElementById("appb").innerHTML=resultsHTML;
     })
-    // fetch(`https://www.googleapis.com/customsearch/v1?key=${API_KEY}&cx=${CONTEXT_KEY}&q=${search}`)
-    // .then((response) => response.json())
-    // .then((results) =>  
-    // {
-    //   var items1=results.items;
-    //     console.log(items1);
-    //   var resultsHTML=""   
-    //   items1.forEach(element => {
-
-    //     resultsHTML+=`  <div class="result" >
-    //             <div class="link">
-    //                <a href="${element.link}" >${element.formattedUrl}</a>
-    //             </div>
-    //             <div class="title">
-    //                 <a href="${element.link}">${element.title}</a>
-    //             </div>
-    //             <div class="ds">
-    //                 ${element.snippet}
-    //             </div>
-    //         </div>`
-    //   });
-    //   console.log(results.items);
-    //     document.getElementById("appb").innerHTML=resultsHTML;
-    // })
+    
     </script>
 </body>
-<!-- https://www.googleapis.com/customsearch/v1?key=${API_KEY}&cx=${CONTEXT_KEY}&q=${search} -->
 </html>

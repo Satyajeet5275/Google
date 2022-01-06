@@ -56,6 +56,7 @@
             </div>
         </div>
         <script>
+            // to add event after pressing enter
             document.getElementById("si").addEventListener("keyup",function(event) 
             {
               if (event.keyCode === 13) 
@@ -65,12 +66,13 @@
                
               }
             });
+            //to pass searched text on other page
             function searching()
             {
                 location.href=('main.html');
                 var search=document.getElementById("si").value
                console.log(search)
-                localStorage.setItem("name",search)
+                localStorage.setItem("name",search)     //
             }
             
                 
